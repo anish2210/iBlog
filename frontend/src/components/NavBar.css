@@ -1,0 +1,47 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+  border-radius: 1rem;
+}
+
+.logo h1 {
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.user {
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.user a {
+    text-decoration: none;
+    color: black;
+    scale: 1.1;
+}
+
+.signUp {
+  border: 1px solid black;
+  padding: 0.5rem;
+  border-radius: 12px;
+  transition: background-color 0.5s, border 0.3s, color 0.3s;
+}
+
+.signUp:hover {
+    border: 1px solid white;
+    background-color: black;
+    scale: 1.1;
+}
+
+.signUp a:hover{
+    color: white;
+}
+
+.login:hover{
+    scale: 1.1;
+    transition: background-color 0.5s, border 0.3s, color 0.3s;
+}
