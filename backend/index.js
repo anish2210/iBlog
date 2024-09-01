@@ -7,7 +7,10 @@ const auth = require("./middleware/auth");
 const Post = require("./modal/post");
 const Comment = require("./modal/comment");
 const app = express();
+const cors = require('cors');
 const port = 3000;
+
+app.use(cors());
 
 const dbURI =
   "mongodb+srv://anishjaiswal1220:ZHiJzyFBCXeTY7YF@iblog.vehakhq.mongodb.net/";
@@ -125,7 +128,7 @@ app.post("/posts", auth, async (req, res) => {
 });
 
 // Read all post
-app.get("/posts", auth, async (req, res) => {
+app.get("/posts", async (req, res) => {
   try {
     const posts = await Post.find().populate('author', 'name email');
     res.status(200).send(posts);

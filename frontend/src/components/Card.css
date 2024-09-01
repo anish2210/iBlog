@@ -1,21 +1,36 @@
 .main-content {
-  border: 1px solid rgba(0, 0, 0, 0.411);
+  /* border-bottom: 1px solid rgba(0, 0, 0, 0.411); */
   padding: 1rem;
   border-radius: 1rem;
   display: flex;
   gap: 0.5rem;
-  margin: 1rem 0;
-  /* flex-wrap: wrap; */
+  margin: 2rem 0;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.07);
+  cursor: pointer;
+}
+
+.main-content:hover{
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
 }
 
 .blogImg {
   border: 1px solid rgba(0, 0, 0, 0.411);
   min-width: 20%;
+  flex: 1;
   flex-shrink: 0;
 }
 
+h3{
+  margin: 0;
+}
+
+.blog-content{
+  flex: 3;
+  /* border: 1px solid rgba(0, 0, 0, 0.411); */
+}
+
 .blogText {
-  border: 1px solid rgba(0, 0, 0, 0.411);
+  /* border: 1px solid rgba(0, 0, 0, 0.411); */
   flex-grow: 1;
 }
 

@@ -1,21 +1,25 @@
 import React from 'react';
 import "./Card.css";
 
-function Card() {
+function Card({imgUrl, title, content, author, postTime, postDate}) {
+  
   return (
     <div className='main-content'>
       <div className="blogImg">
-        <img src="" alt="thumbnail" />
+        <img src={imgUrl} alt="thumbnail" />
       </div>
       <div className="blog-content">
+        <div className="blogTitle">
+          <h3>{title}</h3>
+        </div>
         <div className="blogText">
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, cum amet? Iusto numquam, tempora vel ex ullam maiores quos illo voluptas quaerat quod itaque natus nobis hic fugit, voluptates quidem qui, accusamus iste error enim quam animi culpa repudiandae. Explicabo?</p>
+          <p>{content}</p>
         </div>
         <div className="userDetail">
-          <div className="userName">
-            Anish Jaiswal
+          <div className="CardUserName">
+            {author}
           </div>
-          <div className="postTime">X hrs Ago</div>
+          <div className="postTime">{postTime} {postDate}</div>
         </div>
       </div>
     </div>

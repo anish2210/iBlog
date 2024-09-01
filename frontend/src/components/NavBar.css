@@ -19,16 +19,17 @@
 }
 
 .user a {
-    text-decoration: none;
-    color: black;
-    scale: 1.1;
+  text-decoration: none;
+  color: black;
+  scale: 1.1;
 }
 
 .signUp {
   border: 1px solid black;
   padding: 0.5rem;
   border-radius: 12px;
-  transition: background-color 0.5s, border 0.3s, color 0.3s;
+  transition: background-color 0.5s, border 0.3s, color 3s;
+  cursor: pointer;
 }
 
 .signUp:hover {
@@ -37,7 +38,7 @@
     scale: 1.1;
 }
 
-.signUp a:hover{
+.signUp:hover a{
     color: white;
 }
 

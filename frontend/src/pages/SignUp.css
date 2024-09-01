@@ -1,0 +1,60 @@
+.signUpContainer {
+    width: 300px;
+    margin: 50px auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .upper {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .upper p {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  .userEmail,
+  .userName,
+  .userPassword,
+  .confirmUserPassword {
+    width: auto;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+
+  .singUpButton {
+    width: 100%;
+    padding: 10px;
+    background-color: #000000;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .singUpButton:hover {
+    background-color: #000000e0;
+  }
+
+  .hr {
+    margin: 20px 0;
+    border: none;
+    border-top: 1px solid #ddd;
+  }
+
+  .lower p {
+    text-align: center;
+    font-size: 14px;
+    color: #666;
+  }
