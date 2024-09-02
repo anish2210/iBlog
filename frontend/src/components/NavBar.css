@@ -32,6 +32,24 @@
   cursor: pointer;
 }
 
+.logout {
+  border: 1px solid black;
+  padding: 0.5rem;
+  border-radius: 12px;
+  transition: background-color 0.5s, border 0.3s, color 3s;
+  cursor: pointer;
+}
+
+.logout:hover {
+    border: 1px solid white;
+    background-color: black;
+    scale: 1.1;
+}
+
+.logout:hover a{
+    color: white;
+}
+
 .signUp:hover {
     border: 1px solid white;
     background-color: black;
