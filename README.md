@@ -6,7 +6,8 @@
 This project is a blog posting platform built using the MERN (MongoDB, Express.js, React.js, Node.js) stack. It allows users to create, edit, and manage blog posts with a clean and responsive UI.
 
 ## Folder Structure
-/backend # Contains the backend server code (Node.js, Express) /frontend # Contains the frontend client code (React.js) 
+- /backend Contains the backend server code (Node.js, Express) 
+- /frontend Contains the frontend client code (React.js) 
 
 # Project documentation
 
