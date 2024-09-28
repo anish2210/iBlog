@@ -7,13 +7,15 @@ const auth = require("./middleware/auth");
 const Post = require("./modal/post");
 const Comment = require("./modal/comment");
 const app = express();
-const cors = require('cors');
+const cors = require("cors");
 const port = 3000;
+const dotenv = require("dotenv");
+
+dotenv.config({});
 
 app.use(cors());
 
-const dbURI =
-  "mongodb+srv://anishjaiswal1220:ZHiJzyFBCXeTY7YF@iblog.vehakhq.mongodb.net/";
+const dbURI = process.env.URI;
 
 mongoose
   .connect(dbURI)
@@ -130,7 +132,7 @@ app.post("/posts", auth, async (req, res) => {
 // Read all post
 app.get("/posts", async (req, res) => {
   try {
-    const posts = await Post.find().populate('author', 'name email');
+    const posts = await Post.find().populate("author", "name email").sort({createdAt: -1});
     res.status(200).send(posts);
   } catch (error) {
     res.status(500).send("Error fetching posts: " + error.message);
@@ -139,85 +141,91 @@ app.get("/posts", async (req, res) => {
 
 // Read a post
 app.get("/posts/:id", auth, async (req, res) => {
-    try{
-        const post = await Post.findById(req.params.id).populate('author', 'name email');
-        if(!post){
-            res.status(404).send("Post not found");
-        }
-        res.status(200).send(post);
-    }catch(error){
-        res.status(500).send("Error fetching post" + error.message);
+  try {
+    const post = await Post.findById(req.params.id).populate(
+      "author",
+      "name email"
+    );
+    if (!post) {
+      res.status(404).send("Post not found");
     }
+    res.status(200).send(post);
+  } catch (error) {
+    res.status(500).send("Error fetching post" + error.message);
+  }
 });
 
 // Update a post
 app.put("/posts/:id", auth, async (req, res) => {
-    const {title, content} = req.body;
+  const { title, content } = req.body;
 
-    try{
-        const post = await Post.findById(req.params.id);
-        if(!post){
-            return res.status(404).send("Post not found");
-        }
-        if(post.author.toString() !== req.user.userId){
-            return res.status(403).send("User not authorized to update the post");
-        }
-
-        post.title = title;
-        post.content = content;
-
-        const updatePost = await post.save();
-
-        res.status(200).send("updatedPost");
-    }catch(error){
-        res.status(500).send("Error updating post: " + error.message);
+  try {
+    const post = await Post.findById(req.params.id);
+    if (!post) {
+      return res.status(404).send("Post not found");
     }
+    if (post.author.toString() !== req.user.userId) {
+      return res.status(403).send("User not authorized to update the post");
+    }
+
+    post.title = title;
+    post.content = content;
+
+    const updatePost = await post.save();
+
+    res.status(200).send("updatedPost");
+  } catch (error) {
+    res.status(500).send("Error updating post: " + error.message);
+  }
 });
 
 // Delete a post
 app.delete("/posts/:id", auth, async (req, res) => {
-    try{
-        const post = await Post.findById(req.params.id);
-        if(!post){
-            return res.status(404).send("Post not found");
-        }
-        if(post.author.toString() !== req.user.userId){
-            return res.status(403).send("User not authorized to delete the post");
-        }
-
-        await post.deleteOne();
-        res.status(200).send({message: "Post Deleted"});
-    } catch (error){
-        res.status(500).send("Error deleting post: "+ error.message);
+  try {
+    const post = await Post.findById(req.params.id);
+    if (!post) {
+      return res.status(404).send("Post not found");
     }
+    if (post.author.toString() !== req.user.userId) {
+      return res.status(403).send("User not authorized to delete the post");
+    }
+
+    await post.deleteOne();
+    res.status(200).send({ message: "Post Deleted" });
+  } catch (error) {
+    res.status(500).send("Error deleting post: " + error.message);
+  }
 });
 
 // Comments CRUD Operations
 
 // Create a comment
-app.post('/comments', auth, async(req, res)=>{
-  const {content, postId} = req.body;
+app.post("/comments", auth, async (req, res) => {
+  const { content, postId } = req.body;
 
   const comment = new Comment({
     content,
     author: req.body.userId,
-    post: postId
-  })
+    post: postId,
+  });
 
-  try{
+  try {
     const saveComment = await comment.save();
     res.status(201).send(saveComment);
-  } catch(error){
+  } catch (error) {
     res.status(500).send("Error creating comment: " + error.message);
   }
 });
 
 // Read all for a spec post
-app.get('/comments/:postId', auth, async(req, res)=>{
-  try{
-    const comment = await Comment.find({post: req.params.postId}).populate('author', 'name email');
+app.get("/comments/:postId", auth, async (req, res) => {
+  try {
+    const comment = await Comment.find({ post: req.params.postId }).populate(
+      "author",
+      "name email"
+    );
     res.status(200).send(comment);
-  }catch(error){
+  } catch (error) {
     res.status(500).send("Error fetching comments: " + error.message);
   }
 });
@@ -226,45 +234,49 @@ app.get('/comments/:postId', auth, async(req, res)=>{
 // app.get('/comments/:id', auth, async(req, res)=>{});
 
 // Update a comment
-app.put('/comments/:id', auth, async(req, res)=>{
-  const {content} = req.body;
-  
-  try{
+app.put("/comments/:id", auth, async (req, res) => {
+  const { content } = req.body;
+
+  try {
     const comment = await Comment.findById(req.params.id);
 
-    if(!comment){
+    if (!comment) {
       res.status(404).send("comment not found: " + error.message);
     }
 
-    if(comment.author.toString() !== req.user.userId){
-      res.status(403).send("User not authorized to Update the comment: " + error.message);
+    if (comment.author.toString() !== req.user.userId) {
+      res
+        .status(403)
+        .send("User not authorized to Update the comment: " + error.message);
     }
 
     comment.content = content;
     const updatedComment = await comment.save();
 
     res.status(200).send(updatedComment);
-  }catch{
+  } catch {
     res.status(500).send("Unable to update the comment: " + error.message);
   }
 });
 
 // Delete a comment
-app.delete('/comments/:id', auth, async(req, res)=>{
-  try{
+app.delete("/comments/:id", auth, async (req, res) => {
+  try {
     const comment = await Comment.findById(req.params.id);
 
-    if(!comment){
+    if (!comment) {
       res.status(404).send("Error while finding comment: " + error.message);
     }
 
-    if(comment.author.toString() !== req.user.userId){
-      res.status(403).send("User not authorized to delete the comment: " + error.message);
+    if (comment.author.toString() !== req.user.userId) {
+      res
+        .status(403)
+        .send("User not authorized to delete the comment: " + error.message);
     }
 
     await comment.deleteOne();
     res.status(200).send("Comment deleted successfully");
-  }catch(error){
+  } catch (error) {
     res.status(500).send("Error deleting comment: " + error.message);
   }
 });

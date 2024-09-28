@@ -60,7 +60,7 @@ const Login = () => {
         <hr className="hr" />
         <div className="lower">
           <p>
-            Already have an account ? <Link to="/signup">Sign Up</Link>
+            Do not have an account ? <Link to="/signup">Sign Up</Link>
           </p>
         </div>
       </div>
