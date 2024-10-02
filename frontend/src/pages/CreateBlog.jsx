@@ -2,9 +2,6 @@ import  { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import NavBar from "../components/NavBar";
 import './CreateBlog.css';
-import dotenv from 'dotenv';
-
-dotenv.config({});
 
 function CreateBlog() {
   const [title, setTitle] = useState("");
@@ -30,7 +27,7 @@ function CreateBlog() {
     const home = import.meta.env.VITE_SERVER;
 
     try {
-      const response = await fetch(home, {
+      const response = await fetch(`${home}/posts`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

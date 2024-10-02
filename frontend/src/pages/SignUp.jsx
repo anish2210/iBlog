@@ -2,9 +2,6 @@ import  { useState } from "react";
 import "./SignUp.css";
 import { Link, useNavigate } from "react-router-dom";
 import NavBar from "../components/NavBar";
-import dotenv from "dotenv";
-
-dotenv.config({});
 
 const SignUp = () => {
 
@@ -26,7 +23,7 @@ const SignUp = () => {
     }
 
     try {
-      const response = await fetch(home, {
+      const response = await fetch(`${home}/register`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

@@ -2,9 +2,6 @@ import  { useState } from "react";
 import "./Login.css";
 import { Link, useNavigate } from "react-router-dom";
 import NavBar from "../components/NavBar";
-import dotenv from "dotenv";
-
-dotenv.config({});
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -18,7 +15,7 @@ const Login = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch(home, {
+      const response = await fetch(`${home}/login`, {
         method: "POST",
         headers: {
           "content-Type": "application/json",
