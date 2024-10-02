@@ -280,3 +280,5 @@ app.delete("/comments/:id", auth, async (req, res) => {
     res.status(500).send("Error deleting comment: " + error.message);
   }
 });
+
+module.exports = app;
