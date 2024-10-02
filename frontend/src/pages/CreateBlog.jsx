@@ -27,7 +27,7 @@ function CreateBlog() {
     e.preventDefault();
 
     const token = localStorage.getItem("token");
-    const home = process.env.SERVER;
+    const home = import.meta.env.SERVER;
 
     try {
       const response = await fetch(home, {

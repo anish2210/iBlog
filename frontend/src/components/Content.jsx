@@ -6,7 +6,7 @@ dotenv.config({});
 
 const Content = () => {
   const [blogs, setBlogs] = useState([]);
-  const home = process.env.SERVER;
+  const home = import.meta.env.SERVER;
 
 
   useEffect(() => {

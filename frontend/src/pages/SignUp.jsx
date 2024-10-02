@@ -15,7 +15,7 @@ const SignUp = () => {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
   const navigate = useNavigate();
-  const home = process.env.SERVER;
+  const home = import.meta.env.SERVER;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
