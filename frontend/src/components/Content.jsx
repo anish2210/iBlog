@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import  { useEffect, useState } from "react";
 import Card from "./Card";
 import dotenv from "dotenv";
 
@@ -6,7 +6,7 @@ dotenv.config({});
 
 const Content = () => {
   const [blogs, setBlogs] = useState([]);
-  const home = import.meta.env.SERVER;
+  const home = import.meta.env.VITE_SERVER;
 
 
   useEffect(() => {

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import  { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import NavBar from "../components/NavBar";
 import './CreateBlog.css';
@@ -27,7 +27,7 @@ function CreateBlog() {
     e.preventDefault();
 
     const token = localStorage.getItem("token");
-    const home = import.meta.env.SERVER;
+    const home = import.meta.env.VITE_SERVER;
 
     try {
       const response = await fetch(home, {

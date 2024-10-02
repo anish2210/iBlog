@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import  { useState } from "react";
 import "./Login.css";
 import { Link, useNavigate } from "react-router-dom";
 import NavBar from "../components/NavBar";
@@ -11,7 +11,7 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const navigate = useNavigate();
-  const home = import.meta.env.SERVER;
+  const home = import.meta.env.VITE_SERVER;
 
 
   const handleSubmit = async (e) => {
