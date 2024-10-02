@@ -34,3 +34,6 @@ Before submitting, make sure that:
 - Your code passes all tests
 - Your code adheres to the coding style of the project
 - You’ve included clear commit messages
+
+## Contributors
+1. Subhendu Singh: Updated the routes in frontend.

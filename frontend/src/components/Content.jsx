@@ -1,8 +1,5 @@
 import  { useEffect, useState } from "react";
 import Card from "./Card";
-import dotenv from "dotenv";
-
-dotenv.config({});
 
 const Content = () => {
   const [blogs, setBlogs] = useState([]);
@@ -10,7 +7,7 @@ const Content = () => {
 
 
   useEffect(() => {
-    fetch(home)
+    fetch(`${home}/posts`)
       .then((response) => response.json())
       .then((data) => setBlogs(data))
       .catch((error) => console.error("Error fetching blogs:", error));
