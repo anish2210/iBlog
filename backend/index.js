@@ -36,6 +36,10 @@ app.get("/", (req, res) => {
   res.send("You are on the home page.");
 });
 
+app.get("/testing", (req, res) => {
+  res.send("You are on the testing page.");
+});
+
 app.post("/users", async (req, res) => {
   const { name, email, password } = req.body;
 

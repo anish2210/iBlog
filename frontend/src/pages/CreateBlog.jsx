@@ -2,6 +2,9 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import NavBar from "../components/NavBar";
 import './CreateBlog.css';
+import dotenv from 'dotenv';
+
+dotenv.config({});
 
 function CreateBlog() {
   const [title, setTitle] = useState("");
