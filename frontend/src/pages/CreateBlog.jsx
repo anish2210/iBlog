@@ -27,9 +27,10 @@ function CreateBlog() {
     e.preventDefault();
 
     const token = localStorage.getItem("token");
+    const home = process.env.SERVER;
 
     try {
-      const response = await fetch("http://localhost:3000/posts", {
+      const response = await fetch(home, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

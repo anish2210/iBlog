@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import "./SignUp.css";
 import { Link, useNavigate } from "react-router-dom";
 import NavBar from "../components/NavBar";
+import dotenv from "dotenv";
+
+dotenv.config({});
 
 const SignUp = () => {
 
@@ -12,6 +15,7 @@ const SignUp = () => {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
   const navigate = useNavigate();
+  const home = process.env.SERVER;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -22,7 +26,7 @@ const SignUp = () => {
     }
 
     try {
-      const response = await fetch("http://localhost:3000/register", {
+      const response = await fetch(home, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
