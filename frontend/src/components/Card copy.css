@@ -1,0 +1,138 @@
+.main-content {
+  /* border-bottom: 1px solid rgba(0, 0, 0, 0.411); */
+  padding: 1rem;
+  border-radius: 1rem;
+  /* display: flex; */
+  gap: 0.5rem;
+  margin: 2rem 0;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.07);
+  cursor: pointer;
+  width: 30%;
+  height: 200px;
+  overflow: hidden;
+  padding-bottom: 1rem;
+  position: relative;
+  flex-grow: 1;
+
+@media (width >= 576px) and (width < 1024px) {
+  width: 45%;
+}
+
+@media (width < 576px) {
+  width: 100%;
+}
+
+}
+
+.main-content:hover{
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.blogImg {
+  border: 1px solid rgba(0, 0, 0, 0.411);
+  min-width: 20%;
+  flex: 1;
+  flex-shrink: 0;
+}
+
+h3{
+  margin: 0;
+}
+
+.blog-content{
+  flex: 3;
+  /* border: 1px solid rgba(0, 0, 0, 0.411); */
+}
+
+.blogText {
+  /* border: 1px solid rgba(0, 0, 0, 0.411); */
+  flex-grow: 1;
+}
+
+.blogText p{
+  height: 100%;
+}
+
+
+/* Mobile view */
+@media (max-width: 600px) {
+  .main-content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .blogImg {
+    min-width: 100%;
+    max-width: 100%;
+  }
+
+  .blogText {
+    width: 100%;
+  }
+}
+
+.userDetail {
+  display: flex;
+  justify-content: space-between;
+}
+
+
+/* Modal styling */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 1rem;
+}
+
+.modal-content {
+  background: #FFF;
+  /* padding: 0 20px 20px 20px; */
+  border-radius: 8px;
+  width: 80%;
+  max-width: 600px;
+  max-height: 80%;
+  overflow-y: auto; /* Ensure scrolling if content overflows */
+  position: relative;
+}
+
+.close-btn {
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 0.25rem;
+}
+
+.header{
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #FFF;
+  padding: 0 1rem;
+  border-bottom: 1px solid black;
+}
+
+.header h3 {
+  margin-top: 0;
+  margin: 0;
+}
+
+.header p {
+  white-space: pre-wrap; /* Preserve whitespace and newlines */
+}
+
+.modal .blog-content p {
+padding: 1rem;
+overflow: hidden;
+height: 100%;
+margin-top: 0;
+}

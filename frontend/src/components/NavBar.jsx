@@ -1,13 +1,13 @@
-import  { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import "./NavBar.css";
+import { useEffect, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import './NavBar.css';
 
 function NavBar() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
-    const token = localStorage.getItem("token");
+    const token = localStorage.getItem('token');
 
     if (token) {
       setIsLoggedIn(true);
@@ -15,15 +15,23 @@ function NavBar() {
   }, []);
 
   const handleLogout = () => {
-    localStorage.removeItem("token"); // Remove token on logout
+    localStorage.removeItem('token'); // Remove token on logout
     setIsLoggedIn(false);
   };
 
   const handleCreateBlogClick = (e) => {
     if (!isLoggedIn) {
       e.preventDefault(); // Prevent the default navigation behavior
-      navigate("/login"); // Redirect to login page if not logged in
+      navigate('/login'); // Redirect to login page if not logged in
     }
+  };
+
+  // State to manage the visibility of the user container
+  const [isMenuVisible, setIsMenuVisible] = useState(false);
+
+  // Toggle menu visibility
+  const toggleMenu = () => {
+    setIsMenuVisible(!isMenuVisible);
   };
 
   return (
@@ -33,7 +41,13 @@ function NavBar() {
           <h1>Augmentix</h1>
         </Link>
       </div>
-      <div className="user">
+      <img
+        src="\src\assets\hamburger-menu.svg"
+        alt="Menu"
+        onClick={toggleMenu}
+        className="hamburger"
+      />
+      <div className={`user ${isMenuVisible ? 'visible' : ''}`}>
         <Link to="/CreateBlog" onClick={handleCreateBlogClick}>
           <div className="createBlog">Create New Blog</div>
         </Link>

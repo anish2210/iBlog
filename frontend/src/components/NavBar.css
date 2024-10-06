@@ -2,8 +2,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 10px;
-  border-radius: 1rem;
+  padding: 0 2.5%;
+  background: #72bf78;
 }
 
 .logo h1 {
@@ -11,17 +11,55 @@
   cursor: pointer;
 }
 
+.hamburger {
+  display: none;
+  @media (width<550px) {
+    --hamburger-size: 30px;
+
+    display: block;
+    cursor: pointer;
+    height: var(--hamburger-size);
+    width: var(--hamburger-size);
+  }
+}
+
 .user {
   display: flex;
   gap: 1rem;
-  justify-content: space-between;
   align-items: center;
+  @media (width<550px) {
+    display: none; /* Initially hidden */
+    position: absolute;
+    right: 10px; /* Position on the left side of the hamburger menu */
+    top: 50px; /* Adjust as per your navbar height */
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    z-index: 100;
+    border-radius: 5px;
+  }
+}
+
+.user.visible {
+  @media (width<550px) {
+    display: grid;
+    gap: 10px; /* Show menu when state is toggled */
+    background: #feff9f;
+  }
+}
+
+.user a:hover {
+  color: #007bff;
 }
 
 .user a {
   text-decoration: none;
   color: black;
-  scale: 1.1;
+}
+
+.createBlog {
+  font-size: 18px;
+  font-weight: 700;
 }
 
 .signUp {
@@ -38,29 +76,33 @@
   border-radius: 12px;
   transition: background-color 0.5s, border 0.3s, color 3s;
   cursor: pointer;
+
+  @media (width < 576px) {
+    text-align: center;
+  }
 }
 
 .logout:hover {
-    border: 1px solid white;
-    background-color: black;
-    scale: 1.1;
+  border: 1px solid white;
+  background-color: black;
+  scale: 1.1;
 }
 
-.logout:hover a{
-    color: white;
+.logout:hover a {
+  color: white;
 }
 
 .signUp:hover {
-    border: 1px solid white;
-    background-color: black;
-    scale: 1.1;
+  border: 1px solid white;
+  background-color: black;
+  scale: 1.1;
 }
 
-.signUp:hover a{
-    color: white;
+.signUp:hover a {
+  color: white;
 }
 
-.login:hover{
-    scale: 1.1;
-    transition: background-color 0.5s, border 0.3s, color 0.3s;
+.login:hover {
+  scale: 1.1;
+  transition: background-color 0.5s, border 0.3s, color 0.3s;
 }

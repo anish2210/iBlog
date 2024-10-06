@@ -1,21 +1,9 @@
 .homeMain {
-  max-width: 70%;
   margin: 0 auto;
-  /* border: 1px solid red; */
 }
 
 .navBar {
   position: sticky;
   top: 0;
   z-index: 100;
-  background-color: white;
-}
-
-
-@media (max-width: 600px) {
-  .homeMain {
-    max-width: 80%;
-    margin: 0 auto;
-    /* border: 1px solid red; */
-  }
 }
