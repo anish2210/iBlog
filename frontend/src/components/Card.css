@@ -1,8 +1,9 @@
 .main-content {
   display: flex;
   flex-direction: column;
-  background: #a0d683;
+  background: #fff;
   border-radius: 10px;
+  border: 1px solid #f2f2f2;
 }
 
 .main-content:hover {
@@ -14,7 +15,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 30px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
 }
 
 .blogImg img {
@@ -33,6 +36,10 @@
   padding: 0 0.5rem;
 }
 
+.blogTitle h2 {
+  text-align: left;
+}
+
 .blogText-container {
   flex: 1;
   padding: 0 0.5rem;
@@ -40,6 +47,9 @@
 
 .blogText {
   margin-top: 0;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 32px;
 }
 
 .view-more {
@@ -47,6 +57,9 @@
   margin-left: auto;
   cursor: pointer;
   text-decoration: underline;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 32px;
 }
 
 .userDetail {
@@ -54,12 +67,21 @@
   justify-content: space-between;
   border-bottom-right-radius: 10px;
   padding: 0.5rem;
-  background: #72bf78;
+  background: #fff;
   border-bottom-left-radius: 10px;
+}
 
-  @media (width < 576px) {
-    font-size: 14px;
-  }
+.CardUserName {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+.postTime {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  align-self: center;
 }
 
 .blog-content-popup {
@@ -76,7 +98,7 @@
 }
 
 .header-blog-content {
-  background: #a0d683;
+  background: #fff;
   border-radius: 8px;
   width: 80%;
   max-width: 600px;
@@ -91,9 +113,9 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #feff9f;
+  background: #fff;
   padding: 0 1rem;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid #f2f2f2;
 }
 
 .header h3 {
@@ -113,4 +135,7 @@
   overflow: hidden;
   height: 100%;
   margin-top: 0;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 32px;
 }

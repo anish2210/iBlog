@@ -21,7 +21,7 @@ function Card({ imgUrl, title, content, author, postTime, postDate }) {
       </div>
       <div className="blog-content">
         <div className="blogTitle">
-          <h3>{title}</h3>
+          <h2>{title}</h2>
         </div>
         <div className="blogText-container">
           <p className="blogText">
@@ -48,7 +48,7 @@ function Card({ imgUrl, title, content, author, postTime, postDate }) {
         <div className="blog-content-popup">
           <div className="header-blog-content">
             <div className="header">
-              <h3>{title}</h3>
+              <h1>{title}</h1>
               <span className="close-btn" onClick={toggleModal}>
                 &times;
               </span>

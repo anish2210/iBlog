@@ -3,7 +3,8 @@
   justify-content: space-between;
   align-items: center;
   padding: 0 2.5%;
-  background: #72bf78;
+  background: #fff;
+  border-bottom: 1px solid #f2f2f2;
 }
 
 .logo h1 {
@@ -44,22 +45,31 @@
   @media (width<550px) {
     display: grid;
     gap: 10px; /* Show menu when state is toggled */
-    background: #feff9f;
+    background: #fff;
   }
 }
 
 .user a:hover {
-  color: #007bff;
+  color: black;
 }
 
 .user a {
   text-decoration: none;
-  color: black;
+  /* color: black; */
+  color: #6b6b6b;
 }
 
-.createBlog {
-  font-size: 18px;
-  font-weight: 700;
+.createBlog,
+.login,
+.signUp {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  color: #6b6b6b;
+}
+
+.createBlog:hover {
+  color: black;
 }
 
 .signUp {
@@ -68,6 +78,10 @@
   border-radius: 12px;
   transition: background-color 0.5s, border 0.3s, color 3s;
   cursor: pointer;
+
+  @media (width < 576px) {
+    text-align: center;
+  }
 }
 
 .logout {
@@ -102,6 +116,7 @@
   color: white;
 }
 
+.createBlog:hover,
 .login:hover {
   scale: 1.1;
   transition: background-color 0.5s, border 0.3s, color 0.3s;
