@@ -1,0 +1,12 @@
+.mainContainer {
+  width: 90%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, auto));
+  padding: 1rem;
+  gap: 1rem; /* Optional: Adjust the space between columns */
+
+  @media (width < 576px) {
+    grid-template-columns: repeat(auto-fit, minmax(250px, auto));
+  }
+}
