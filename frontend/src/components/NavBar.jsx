@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './NavBar.css';
+import hamburgerMenu from '../assets/hamburger-menu.svg';
 
 function NavBar() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -38,11 +39,11 @@ function NavBar() {
     <div className="navbar">
       <div className="logo">
         <Link to="/" className="logoMain">
-          <h1>Augmentix</h1>
+          <h1>i-Blogg</h1>
         </Link>
       </div>
       <img
-        src="\src\assets\hamburger-menu.svg"
+        src={hamburgerMenu}
         alt="Menu"
         onClick={toggleMenu}
         className="hamburger"
